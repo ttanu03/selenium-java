@@ -1,0 +1,49 @@
+package day22;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Locator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		  WebDriver driver = new ChromeDriver();
+		 driver.get("https://demo.nopcommerce.com/");
+		 driver.manage().window().maximize();
+		 //name
+		 
+		 driver.findElement(By.name("search")).sendKeys("Mac");
+		 
+		 //we are using id to send the tshirt
+		 driver.findElement(By.cssSelector("#small-searchterms")).sendKeys("Tshirt");
+		 
+		 
+		 //id  we are checking if the logo is display or not
+		 boolean  logoDisplaystatus=driver.findElement(By.id("logo")).isDisplayed();
+		 System.out.println(logoDisplaystatus);
+		 
+		 //linktext and partiallinkedtest
+		 driver.findElement(By.linkText("Tablets")).click();
+		 
+		 driver.findElement(By.partialLinkText("Table")).click();
+		 
+		 //classname
+		 List<WebElement> headerLinks=driver.findElements(By.className("list-inline-item"));
+		 System.out.println("Number of links in the page "+headerLinks.size());
+		 
+		 //tagName
+		 List<WebElement> links =driver.findElements(By.tagName("a"));
+		 System.out.println("Total numeber of link :"+links.size());
+		 
+		 //total number of images in the webpages
+		 
+		 List<WebElement> images=driver.findElements(By.tagName("img"));
+		 System.out.println("Total numnber of images :"+images.size());
+		 
+	}
+
+}
