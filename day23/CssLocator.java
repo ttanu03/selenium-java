@@ -12,7 +12,26 @@ public class CssLocator {
 			 driver.get("https://demo.nopcommerce.com/");
 			 driver.manage().window().maximize();
 			 
-			 driver.findElement(By.cssSelector("input#small-searchterms")).sendKeys("Tshirt");
+			 
+			 //tagid   tag#id
+			 //here tag is optional we can use the tag or not
+			 driver.findElement(By.cssSelector("input#small-searchterms")).sendKeys("T-shirts");
+			 
+			 driver.findElement(By.cssSelector("#small-searchterms")).sendKeys("T-Shirt");
+			 
+			 //tag class tag.className
+//			  driver.findElement(By.cssSelector("input.search-box-text")).sendKeys("T-shirt");
+			  driver.findElement(By.cssSelector(".search-box-text")).sendKeys("T-Shirt");
+			  
+			  //tag attribute
+			  driver.findElement(By.cssSelector("input[placeholder='Search store']")).sendKeys("T-Shirt");
+			  driver.findElement(By.cssSelector("[placeholder='Search store']")).sendKeys("T-Shirt");
+			  
+			  //tag class and attribute
+			  driver.findElement(By.cssSelector("input.Search-box-test[name='q']")).sendKeys("T-Shirt");
+			  driver.findElement(By.cssSelector(".search-box-text[name='q']")).sendKeys("Ipad");
+//		 
+			 
 			 
 			 //
 	}
